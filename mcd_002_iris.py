@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from sklearn import datasets
 from sklearn.ensemble import RandomForestClassifier
+import pickle
 
 st.write("""
 # APLICACION IRIS PARA PREDICTION DE TIPO DE ESPECIES
@@ -33,6 +34,14 @@ X= iris.data
 Y= iris.target
 clf =RandomForestClassifier()
 clf.fit(X,Y)
+##with open("modelo_iris",'wb') as output:
+##  pickle.dump(clf,output)
+#print("generar modelo")
+#import os
+#var= os.getcwd()
+#new= os.path.join(var,'modelo_iris')
+#clf = pickle.load(open(new,'rb'))
+
 prediction =  clf.predict(df)
 prediction_proba = clf.predict_proba(df)# probabilidad
 
